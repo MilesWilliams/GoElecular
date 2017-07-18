@@ -54,7 +54,7 @@ func loadConfig() configuration {
 	// default values
 	viper.SetDefault("name", "")
 	viper.SetDefault("server", "localhost")
-	viper.SetDefault("port", "9109")
+	viper.SetDefault("port", "4200")
 
 	// Write all params to stdout
 	color.Set(color.FgGreen)
@@ -120,7 +120,7 @@ func main() {
 	go http.ListenAndServe(addr, nil) //Start websockets in goroutine
 
 	log.Printf("Starting Electron...")
-	cmd := exec.Command("electron", "./src/electron")
+	cmd := exec.Command("electron", ".")
 	err := cmd.Start()
 	if err != nil {
 		log.Fatal(err)
